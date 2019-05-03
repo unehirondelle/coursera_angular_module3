@@ -58,12 +58,12 @@
             return $http({
                 method: "GET",
                 url: (ApiBasePath + "/menu_items.json")
-            }).then(function (result) {
+            }).then(function (response) {
                 let foundItems = [];
 
-                for (var i = 0; i < result.data["menu_items"].length; i++) {
-                    if (searchTerm.length > 0 && result.data["menu_items"][i]["description"].toLowerCase().indexOf(searchTerm) !== -1) {
-                        foundItems.push(result.data["menu_items"][i]);
+                for (var i = 0; i < response.data["menu_items"].length; i++) {
+                    if (searchTerm.length > 0 && response.data["menu_items"][i]["description"].toLowerCase().indexOf(searchTerm) !== -1) {
+                        foundItems.push(response.data["menu_items"][i]);
                     }
                 }
                 return foundItems;
