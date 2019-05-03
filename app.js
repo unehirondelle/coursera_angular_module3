@@ -30,7 +30,7 @@
         var menuCtrl = this;
         menuCtrl.shortName = '';
 
-        menu.matchedMenuItems = function(searchTerm) {
+        menuCtrl.matchedMenuItems = function(searchTerm) {
             var promise = MenuSearchService.getMatchedMenuItems(searchTerm);
 
             promise.then(function(items) {
