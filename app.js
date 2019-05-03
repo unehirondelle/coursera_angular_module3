@@ -37,9 +37,12 @@
                 if (items && items.length > 0) {
                     menuCtrl.message = "";
                     menuCtrl.found = items;
+                    console.log("not empty");
+                    console.log(items);
                 } else {
                     menuCtrl.message = "Nothing found!";
                     menuCtrl.found = [];
+                    console.log("empty");
                 }
             });
         };
