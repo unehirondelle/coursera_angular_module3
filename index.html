@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Narrow Down Your Menu Choice</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -13,9 +15,9 @@
 <div class="container" ng-controller="NarrowItDownController as menuCtrl">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
     <div class="search">
-        <input type="text" placeholder="search term" class="form-control" ng-model="menuCtrl.search">
+        <input type="text" placeholder="search term" class="form-control" ng-model="menuCtrl.shortName">
         <div class="narrow-button">
-            <button class="btn btn-primary" ng-click="menuCtrl.matchedMenuItems(menuCtrl.search)">Narrow It Down For Me!</button>
+            <button class="btn btn-primary" ng-click="menuCtrl.matchedMenuItems(menuCtrl.shortName)">Narrow It Down For Me!</button>
         </div>
     </div>
     <found-items found-items="menuCtrl.found" on-remove="menuCtrl.removeMenuItem(index)" on-empty="menuCtrl.message"></found-items>
