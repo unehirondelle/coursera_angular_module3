@@ -1,7 +1,12 @@
-<ul>
-    <li ng-repeat="item in menu.foundItems">
-        {{item.name}}, {{item.short_name}}, {{item.description}}
-        <button ng-click="menuCtrl.onRemove({index: $index})"> Don't want this one! </button>
-    </li>
-</ul>
+<div class="row">
+    <div ng-repeat="item in menu.foundItems">
+        <div class="clearfix" ng-if = "$index % 2 == 0"></div>
+        <div class="col-md-6">
+            <h2>{{item.name}}</h2>
+            <h3>{{item.short_name}}</h3>
+            <p>{{item.description}} </p>
+        <input type="button" class="btn btn-lg btn-primary" ng-click="menuCtrl.onRemove({index: $index})" value="Don't want this one!">
+    </div>
+</div>
+</div>
 <div class="alert alert-danger" role="alert" ng-show="menuCtrl.onEmpty">{{menuCtrl.onEmpty}}</div>

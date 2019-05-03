@@ -43,6 +43,7 @@
                 }
             });
         };
+
         menuCtrl.removeItem = function (itemIndex) {
             menuCtrl.found.splice(itemIndex, 1);
         }
