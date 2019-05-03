@@ -10,15 +10,20 @@
 <div class="container" ng-controller="NarrowItDownController as menuCtrl">
     <h1>Narrow Down Your Chinese Menu Choice</h1>
 
-    <div class="form-group search">
-        <input type="text" placeholder="search term" class="form-control" ng-model="menuCtrl.search">
-    </div>
-    <div class="form-group narrow-button">
-        <button class="btn btn-primary" ng-click="menuCtrl.matchedMenuItems(menuCtrl.search)">Narrow It Down For Me!</button>
+    <div class="search">
+        <div class="form-group">
+            <input type="text" placeholder="search term" class="form-control" ng-model="menuCtrl.search">
+        </div>
+        <div class="form-group narrow-button">
+            <button class="btn btn-primary" ng-click="menuCtrl.matchedMenuItems(menuCtrl.search)">Narrow It Down For
+                Me!
+            </button>
+        </div>
     </div>
 
     <!-- found-items should be implemented as a component -->
-    <found-items found-items="menuCtrl.found" on-remove="menuCtrl.removeItem(index)" on-empty="menuCtrl.message"></found-items>
+    <found-items found-items="menuCtrl.found" on-remove="menuCtrl.removeItem(index)"
+                 on-empty="menuCtrl.message"></found-items>
 </div>
 <script src="https://code.angularjs.org/1.7.8/angular.min.js"></script>
 <script src="app.js"></script>

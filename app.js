@@ -36,6 +36,9 @@
             promise.then(function (items) {
                 if (items && items.length > 0) {
                     menuCtrl.message = "";
+                    menuCtrl.found = items;
+                } else {
+                    menuCtrl.message = "Nothing found!";
                     menuCtrl.found = [];
                 }
             });
