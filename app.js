@@ -4,29 +4,8 @@
     angular.module("NarrowItDownApp", [])
         .controller("NarrowItDownController", NarrowItDownController)
         .service("MenuSearchService", MenuSearchService)
-        .directive("foundItems", FoundItemsDirective)
-        .constant("ApiBasePath", "https://davids-restaurant.herokuapp.com");
-
-    NarrowItDownController.$inject = ["MenuSearchService"];
-
-    function NarrowItDownController(MenuSearchService) {
-        let menuCtrl = this;
-        menuCtrl.search = "";
-
-        menuCtrl.matchedMenuItems = function (searchTerm) {
-            let promise = MenuSearchService.getMathcedMenuItems(searchTerm);
-
-            promise.then(function (items) {
-                if (items && items.length > 0) {
-                    menuCtrl.message = "";
-                    menuCtrl.found = [];
-                }
-            });
-        };
-        menuCtrl.removeItem = function (itemIndex) {
-            menuCtrl.found.splice(itemIndex, 1);
-        }
-    }
+        .constant("ApiBasePath", "https://davids-restaurant.herokuapp.com")
+        .directive("foundItems", FoundItemsDirective);
 
     function FoundItemsDirective() {
         let ddo = {
@@ -43,6 +22,27 @@
         };
 
         return ddo;
+    }
+
+    NarrowItDownController.$inject = ["MenuSearchService"];
+
+    function NarrowItDownController(MenuSearchService) {
+        let menuCtrl = this;
+        menuCtrl.search = "";
+
+        menuCtrl.matchedMenuItems = function (searchTerm) {
+            let promise = MenuSearchService.getMatchedMenuItems(searchTerm);
+
+            promise.then(function (items) {
+                if (items && items.length > 0) {
+                    menuCtrl.message = "";
+                    menuCtrl.found = [];
+                }
+            });
+        };
+        menuCtrl.removeItem = function (itemIndex) {
+            menuCtrl.found.splice(itemIndex, 1);
+        }
     }
 
     MenuSearchService.$inject = ["$http", "ApiBasePath"];
